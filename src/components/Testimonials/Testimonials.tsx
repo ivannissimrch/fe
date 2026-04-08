@@ -11,6 +11,8 @@ const cardsPerPageMap = {
 };
 
 export default async function Testimonials({ lang }: { lang: Lang }) {
+  if (!Object.values(Lang).includes(lang)) return null;
+
   let testimonials = [];
   try {
     testimonials = await fetchTestimonials(lang);
